@@ -18,6 +18,7 @@ import org.opencv.cultoftheunicorn.marvel.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 class Attendees {
@@ -93,28 +94,29 @@ public class ReviewResults extends AppCompatActivity implements ReviewListAdapte
 
         if(commitList.size() != 0) {
 //            Enable firebase and then uncomment the following lines
-
-//            FirebaseDatabase database = FirebaseDatabase.getInstance();
-//            DatabaseReference myRef = database.getReference("attendence");
+/*
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("attendence");
 
 //            convert to a comma separated string
 //            this has to be the worst way to push data to a db
-//            StringBuilder sb = new StringBuilder();
-//            for (String s : commitList) {
-//                sb.append(s);
-//                sb.append(",");
-//            }
 
-//            Attendees at = new Attendees(sb.toString(), (new Date()).toString());
-//            String key = myRef.push().getKey();
-//            myRef.child(key).setValue(at);
+            StringBuilder sb = new StringBuilder();
+            for (String s : commitList) {
+                sb.append(s);
+                sb.append(",");
+            }
 
+            Attendees at = new Attendees(sb.toString(), (new Date()).toString());
+            String key = myRef.push().getKey();
+            myRef.child(key).setValue(at);
+
+            finish();
+
+
+            System.out.println(sb.toString());
+*/
             Toast.makeText(getApplicationContext(), "Enable firebase for this to work", Toast.LENGTH_LONG).show();
-//            finish();
-
-
-//            System.out.println(sb.toString());
-
         }
         else {
             Toast.makeText(getApplicationContext(), "Please select at least one student", Toast.LENGTH_SHORT).show();

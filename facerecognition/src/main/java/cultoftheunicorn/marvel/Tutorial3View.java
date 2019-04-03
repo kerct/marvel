@@ -78,7 +78,7 @@ public class Tutorial3View extends JavaCameraView {
     	 setCameraIndex(org.opencv.android.CameraBridgeViewBase.CAMERA_ID_FRONT );
     	 connectCamera(getWidth(), getHeight());
     }
-    
+
     public void setCamBack()
     {
     	 disconnectCamera();
