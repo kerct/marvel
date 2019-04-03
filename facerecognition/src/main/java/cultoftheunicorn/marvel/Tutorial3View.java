@@ -20,7 +20,7 @@ public class Tutorial3View extends JavaCameraView {
 
     public Tutorial3View(Context context, AttributeSet attrs) {
         super(context, attrs);
-     
+        setCamFront();
     }
 
     public List<String> getEffectList() {
@@ -71,12 +71,14 @@ public class Tutorial3View extends JavaCameraView {
     	 mCamera.setParameters(parameters);
 
     }
+
     public void setCamFront()
     {
     	 disconnectCamera();
     	 setCameraIndex(org.opencv.android.CameraBridgeViewBase.CAMERA_ID_FRONT );
     	 connectCamera(getWidth(), getHeight());
     }
+    
     public void setCamBack()
     {
     	 disconnectCamera();

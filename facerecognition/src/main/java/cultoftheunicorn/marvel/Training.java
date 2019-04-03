@@ -46,7 +46,6 @@ public class Training extends AppCompatActivity implements CameraBridgeViewBase.
     private static final int frontCam =1;
     private static final int backCam =2;
 
-
     private int faceState=IDLE;
 
     private Mat                    mRgba;
