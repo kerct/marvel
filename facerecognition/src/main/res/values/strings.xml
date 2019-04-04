@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Marvel</string>
+    <string name="app_name">Face Recognition OpenCV</string>
     <string name="BLANK"></string>
     <string name="STrain">Train</string>
     <string name="SViewAll">View all faces</string>
@@ -16,7 +16,7 @@
     <string name="SSearching">Searching</string>
     <string name="SFrontCamera">Front Camera</string>
     <string name="SBackCamera">Back Camera</string>
-    <string name="training">Training</string>
+    <string name="train">Train</string>
     <string name="recognize">Recognize</string>
     <string name="capture">Capture</string>
     <string name="image_preview">image preview</string>

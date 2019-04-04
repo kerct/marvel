@@ -136,8 +136,8 @@ public  class PersonRecognizer {
 	public String predict(Mat m) {
 		if (!canPredict())
 			return "";
-		int n[] = new int[1];
-		double p[] = new double[1];
+		int n[] = new int[1]; // [0]
+		double p[] = new double[1]; // [0.0]
 		IplImage ipl = MatToIplImage(m,WIDTH, HEIGHT);
 //		IplImage ipl = MatToIplImage(m,-1, -1);
 
@@ -147,9 +147,13 @@ public  class PersonRecognizer {
 			mProb=(int)p[0];
 		else
 			mProb=-1;
-		//	if ((n[0] != -1)&&(p[0]<95))
-		if (n[0] != -1)
-			return labelsFile.get(n[0]);
+
+		// set the associated confidence (distance) to be < 70
+		if ((n[0] != -1) && (p[0] < 70)) {
+            Log.i("RECOGNIZER", "n " + n[0]);
+            Log.i("RECOGNIZER", "p " + p[0]);
+            return labelsFile.get(n[0]);
+        }
 		else
 			return "Unknown";
 	}
