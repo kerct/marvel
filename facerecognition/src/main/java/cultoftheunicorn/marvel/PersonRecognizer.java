@@ -22,13 +22,12 @@ import android.util.Log;
 
 public  class PersonRecognizer {
 
-	FaceRecognizer faceRecognizer;
-	String mPath;
-	int count=0;
-	Labels labelsFile;
-
-	static  final int WIDTH= 128;
-	static  final int HEIGHT= 128;;
+    private FaceRecognizer faceRecognizer;
+    private String mPath;
+    private int count=0;
+    private Labels labelsFile;
+    private static final int WIDTH= 128;
+    private static final int HEIGHT= 128;
 	private int mProb=999;
 
 
@@ -134,6 +133,8 @@ public  class PersonRecognizer {
 	}
 
 	public String predict(Mat m) {
+	    final int CONFIDENCE = 75;
+
 		if (!canPredict())
 			return "";
 		int n[] = new int[1]; // [0]
@@ -148,8 +149,8 @@ public  class PersonRecognizer {
 		else
 			mProb=-1;
 
-		// set the associated confidence (distance) to be < 70
-		if ((n[0] != -1) && (p[0] < 70)) {
+		// set the associated confidence (distance)
+		if ((n[0] != -1) && (p[0] < CONFIDENCE)) {
             Log.i("RECOGNIZER", "n " + n[0]);
             Log.i("RECOGNIZER", "p " + p[0]);
             return labelsFile.get(n[0]);
