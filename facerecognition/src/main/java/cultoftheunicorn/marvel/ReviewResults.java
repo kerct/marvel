@@ -14,6 +14,9 @@ import android.widget.Toast;
 //import com.google.firebase.database.DatabaseReference;
 //import com.google.firebase.database.FirebaseDatabase;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.opencv.cultoftheunicorn.marvel.R;
 
 import java.util.ArrayList;
@@ -94,7 +97,7 @@ public class ReviewResults extends AppCompatActivity implements ReviewListAdapte
 
         if(commitList.size() != 0) {
 //            Enable firebase and then uncomment the following lines
-/*
+
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myRef = database.getReference("attendence");
 
@@ -113,9 +116,8 @@ public class ReviewResults extends AppCompatActivity implements ReviewListAdapte
 
             finish();
 
-
             System.out.println(sb.toString());
-*/
+
             Toast.makeText(getApplicationContext(), "Enable firebase for this to work", Toast.LENGTH_LONG).show();
         }
         else {

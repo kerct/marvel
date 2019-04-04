@@ -78,7 +78,12 @@ public class Training extends AppCompatActivity implements CameraBridgeViewBase.
 
     Labels labelsFile;
     static {
-        OpenCVLoader.initDebug();
+        if(OpenCVLoader.initDebug()){
+            Log.i(TAG, "OpenCVLoader init debug");
+        }
+        else {
+            Log.e(TAG, "OpenCV not loaded");
+        }
         System.loadLibrary("opencv_java");
     }
 

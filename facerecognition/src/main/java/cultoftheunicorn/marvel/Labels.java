@@ -118,8 +118,10 @@ public class Labels {
 		Iterator<label> Ilabel = thelist.iterator();
 		while (Ilabel.hasNext()) {
 			label l = Ilabel.next();
+			Log.i("Labels", l.toString());
 			if (l.num>m) m=l.num;
 		}
+		Log.i("Labels", "max: " + m);
 		return m;
 	}
 
