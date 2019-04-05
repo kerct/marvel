@@ -29,6 +29,7 @@ import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.cultoftheunicorn.marvel.R;
+import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 
 import java.io.File;
@@ -215,22 +216,6 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
         {
             Log.e("Error","Error creating directory");
         }
-
-        Button submit = (Button) findViewById(R.id.submit);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(uniqueNames.size() > 0) {
-                    Intent intent = new Intent(Recognize.this, ReviewResults.class);
-                    intent.putExtra("list", uniqueNamesArray);
-                    startActivity(intent);
-                }
-                else {
-                    Toast.makeText(Recognize.this, "Empty list cannot be sent further", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
     }
 
     @Override
@@ -247,8 +232,13 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
 
     @Override
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
+
         mRgba = inputFrame.rgba();
         mGray = inputFrame.gray();
+
+//        Mat mRgbaT = mRgba.t();
+//        Core.flip(mRgba.t(), mRgbaT, 1);
+//        Imgproc.resize(mRgbaT, mRgbaT, mRgba.size());
 
         if (mAbsoluteFaceSize == 0) {
             int height = mGray.rows();
@@ -261,9 +251,11 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
         MatOfRect faces = new MatOfRect();
 
         if (mDetectorType == JAVA_DETECTOR) {
-            if (mJavaDetector != null)
+            if (mJavaDetector != null) {
+                Log.d(TAG, "detected here");
                 mJavaDetector.detectMultiScale(mGray, faces, 1.1, 2, 2, // TODO: objdetect.CV_HAAR_SCALE_IMAGE
                         new Size(mAbsoluteFaceSize, mAbsoluteFaceSize), new Size());
+            }
         }
         else if (mDetectorType == NATIVE_DETECTOR) {
             /*if (mNativeDetector != null)

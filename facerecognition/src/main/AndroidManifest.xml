@@ -36,29 +36,31 @@
         android:icon="@drawable/lightbulb"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+
         <activity
             android:name="cultoftheunicorn.marvel.MainActivity"
-            android:label="Marvel">
+            android:label="Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name="cultoftheunicorn.marvel.Recognize"
-            android:screenOrientation="landscape" />
+            android:name="cultoftheunicorn.marvel.Recognize" />
+
         <activity
             android:name="cultoftheunicorn.marvel.Training"
             android:label="Training"
             android:screenOrientation="landscape" />
+
         <activity
             android:name="cultoftheunicorn.marvel.NameActivity"
             android:windowSoftInputMode="adjustNothing" />
+
         <activity android:name="cultoftheunicorn.marvel.ReviewResults"
             android:label="Review and Mark"/>
 
-        <!--android:screenOrientation="portrait"-->
     </application>
 
 </manifest>
