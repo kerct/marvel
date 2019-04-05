@@ -62,7 +62,7 @@ public class Training extends AppCompatActivity implements CameraBridgeViewBase.
 
     String mPath="";
 
-    private Tutorial3View   mOpenCvCameraView;
+    private CameraView mOpenCvCameraView;
 
     String text;
     private ImageView Iv;
@@ -103,7 +103,7 @@ public class Training extends AppCompatActivity implements CameraBridgeViewBase.
                 {
                     Log.i(TAG, "OpenCV loaded successfully");
 
-                    fr=new PersonRecognizer(mPath);
+                    fr = new PersonRecognizer(mPath);
                     String s = getResources().getString(R.string.Straininig);
                     //Toast.makeText(getApplicationContext(),s, Toast.LENGTH_LONG).show();
                     fr.load();
@@ -138,14 +138,13 @@ public class Training extends AppCompatActivity implements CameraBridgeViewBase.
                     }
 
                     mOpenCvCameraView.enableView();
-
-                } break;
+                    break;
+                }
                 default:
                 {
                     super.onManagerConnected(status);
-                } break;
-
-
+                    break;
+                }
             }
         }
     };
@@ -173,7 +172,7 @@ public class Training extends AppCompatActivity implements CameraBridgeViewBase.
             }
         });
 
-        mOpenCvCameraView = (Tutorial3View) findViewById(R.id.tutorial3_activity_java_surface_view);
+        mOpenCvCameraView = (CameraView) findViewById(R.id.camera_view);
         mOpenCvCameraView.setCvCameraViewListener(this);
 
         //mPath=getFilesDir()+"/facerecogOCV/";

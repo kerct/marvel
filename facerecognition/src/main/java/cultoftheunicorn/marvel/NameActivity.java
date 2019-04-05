@@ -29,7 +29,7 @@ public class NameActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
                 else {
-                    Toast.makeText(NameActivity.this, "Please enter the name", Toast.LENGTH_LONG).show();
+                    Toast.makeText(NameActivity.this, "Please enter a name", Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -69,7 +69,7 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
 
     String mPath="";
 
-    private Tutorial3View   mOpenCvCameraView;
+    private CameraView mOpenCvCameraView;
 
     private ImageView Iv;
     Bitmap mBitmap;
@@ -162,7 +162,7 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
         scan = (ToggleButton) findViewById(R.id.scan);
         final TextView results = (TextView) findViewById(R.id.results);
 
-        mOpenCvCameraView = (Tutorial3View) findViewById(R.id.tutorial3_activity_java_surface_view);
+        mOpenCvCameraView = (CameraView) findViewById(R.id.camera_view);
         mOpenCvCameraView.setCvCameraViewListener(this);
 
         //mPath=getFilesDir()+"/facerecogOCV/";

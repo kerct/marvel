@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         tools:context="org.opencv.cultoftheunicorn.marvel.cultoftheunicorn.marvel.Training">
 
-            <cultoftheunicorn.marvel.Tutorial3View
-                android:id="@+id/tutorial3_activity_java_surface_view"
+            <cultoftheunicorn.marvel.CameraView
+                android:id="@+id/camera_view"
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:layout_alignParentTop="true"
@@ -27,9 +27,9 @@
                 android:id="@+id/imagePreview"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_alignTop="@id/tutorial3_activity_java_surface_view"
-                android:layout_toRightOf="@id/tutorial3_activity_java_surface_view"
-                android:layout_toEndOf="@id/tutorial3_activity_java_surface_view"
+                android:layout_alignTop="@id/camera_view"
+                android:layout_toRightOf="@id/camera_view"
+                android:layout_toEndOf="@id/camera_view"
                 android:layout_marginLeft="50dp"
                 android:layout_marginStart="50dp"
                 android:src="@drawable/user_image"
@@ -39,7 +39,7 @@
                 android:id="@+id/capture"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/tutorial3_activity_java_surface_view"
+                android:layout_alignBottom="@+id/camera_view"
                 android:layout_alignRight="@+id/imagePreview"
                 android:layout_alignEnd="@+id/imagePreview"
                 android:layout_marginRight="23dp"

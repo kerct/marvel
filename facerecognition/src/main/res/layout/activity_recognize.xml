@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         tools:context="org.opencv.cultoftheunicorn.marvel.cultoftheunicorn.marvel.Training">
 
-        <cultoftheunicorn.marvel.Tutorial3View
-            android:id="@+id/tutorial3_activity_java_surface_view"
+        <cultoftheunicorn.marvel.CameraView
+            android:id="@+id/camera_view"
             android:layout_width="325dp"
             android:layout_height="250dp"
             android:layout_alignParentLeft="true"
@@ -30,8 +30,8 @@
             android:layout_marginLeft="40dp"
             android:layout_marginStart="40dp"
             android:layout_above="@+id/scan"
-            android:layout_toRightOf="@+id/tutorial3_activity_java_surface_view"
-            android:layout_toEndOf="@+id/tutorial3_activity_java_surface_view"
+            android:layout_toRightOf="@+id/camera_view"
+            android:layout_toEndOf="@+id/camera_view"
             android:layout_marginBottom="15dp"
             android:textAlignment="center"
             android:gravity="center"
@@ -45,9 +45,9 @@
             android:textAllCaps="false"
             android:textOff="@string/scan"
             android:textOn="@string/scanning"
-            android:layout_alignBottom="@+id/tutorial3_activity_java_surface_view"
-            android:layout_toRightOf="@+id/tutorial3_activity_java_surface_view"
-            android:layout_toEndOf="@+id/tutorial3_activity_java_surface_view"
+            android:layout_alignBottom="@+id/camera_view"
+            android:layout_toRightOf="@+id/camera_view"
+            android:layout_toEndOf="@+id/camera_view"
             android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp" />
 
@@ -55,14 +55,14 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/tutorial3_activity_java_surface_view"
-            android:layout_toEndOf="@id/tutorial3_activity_java_surface_view"
+            android:layout_toRightOf="@id/camera_view"
+            android:layout_toEndOf="@id/camera_view"
             android:layout_marginLeft="55dp"
             android:layout_marginStart="55dp"
             android:text="@string/results"
             android:textColor="@color/lightBlack"
             android:textStyle="bold"
-            android:layout_alignTop="@+id/tutorial3_activity_java_surface_view" />
+            android:layout_alignTop="@+id/camera_view" />
 
         <Button
             android:id="@+id/submit"
