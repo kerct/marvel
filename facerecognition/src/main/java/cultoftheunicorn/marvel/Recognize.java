@@ -252,7 +252,6 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
 
         if (mDetectorType == JAVA_DETECTOR) {
             if (mJavaDetector != null) {
-                Log.d(TAG, "detected here");
                 mJavaDetector.detectMultiScale(mGray, faces, 1.1, 2, 2, // TODO: objdetect.CV_HAAR_SCALE_IMAGE
                         new Size(mAbsoluteFaceSize, mAbsoluteFaceSize), new Size());
             }
@@ -273,7 +272,6 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
             m=mGray.submat(facesArray[0]);
             mBitmap = Bitmap.createBitmap(m.width(),m.height(), Bitmap.Config.ARGB_8888);
 
-
             Utils.matToBitmap(m, mBitmap);
             Message msg = new Message();
             String textTochange = "IMG";
@@ -287,6 +285,7 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
             mHandler.sendMessage(msg);
 
         }
+        //Log.d(TAG, "detected " + facesArray.length + " faces");
         for (int i = 0; i < facesArray.length; i++)
             Core.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
 

@@ -12,9 +12,12 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -405,6 +408,15 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
             Canvas canvas = getHolder().lockCanvas();
             if (canvas != null) {
                 canvas.drawColor(0, android.graphics.PorterDuff.Mode.CLEAR);
+
+                // ADDED
+//                Matrix matrix = new Matrix();
+//                matrix.preTranslate((canvas.getWidth() - mCacheBitmap.getWidth()) / 2,(canvas.getHeight() - mCacheBitmap.getHeight()) / 2);
+//                matrix.postRotate(90f,(canvas.getWidth()) / 2,(canvas.getHeight()) / 2);
+//                float scale = (float) canvas.getWidth() / (float) mCacheBitmap.getHeight();
+//                matrix.postScale(scale, scale, canvas.getWidth()/2 , canvas.getHeight()/2 );
+//                canvas.drawBitmap(mCacheBitmap, matrix, new Paint());
+
                 Log.d(TAG, "mStretch value: " + mScale);
 
                 if (mScale != 0) {
@@ -425,6 +437,7 @@ public abstract class CameraBridgeViewBase extends SurfaceView implements Surfac
                     mFpsMeter.measure();
                     mFpsMeter.draw(canvas, 20, 30);
                 }
+
                 getHolder().unlockCanvasAndPost(canvas);
             }
         }
