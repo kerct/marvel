@@ -19,15 +19,6 @@
         android:orientation="vertical"
         android:layout_margin="15dp">
 
-        <ToggleButton
-            android:id="@+id/scan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:textAllCaps="false"
-            android:textOff="@string/scan"
-            android:textOn="@string/scanning" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,8 +29,19 @@
         <TextView
             android:id="@+id/results"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:textStyle="bold"/>
+
+        <ToggleButton
+            android:id="@+id/scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:layout_gravity="end"
+            android:textAllCaps="false"
+            android:textOff="@string/scan"
+            android:textOn="@string/scanning" />
 
     </LinearLayout>
 
