@@ -39,7 +39,7 @@
 
         <activity
             android:name="cultoftheunicorn.marvel.MainActivity"
-            android:label="Home">
+            android:label="OCV FR">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
