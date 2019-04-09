@@ -18,6 +18,7 @@
     <string name="SBackCamera">Back Camera</string>
     <string name="train">Train</string>
     <string name="recognize">Recognize</string>
+    <string name="flip">Flip</string>
     <string name="capture">Capture</string>
     <string name="image_preview">image preview</string>
     <string name="capturing">Capturing</string>

@@ -52,9 +52,7 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
     private static final int frontCam =1;
     private static final int backCam =2;
 
-
     private int faceState=IDLE;
-
 
     private Mat                    mRgba;
     private Mat                    mGray;
@@ -78,6 +76,7 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
 
     PersonRecognizer fr;
     ToggleButton scan;
+    Button flip;
 
     Set<String> uniqueNames = new HashSet<String>();
 
@@ -165,6 +164,14 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
 
         mOpenCvCameraView = (CameraView) findViewById(R.id.camera_view);
         mOpenCvCameraView.setCvCameraViewListener(this);
+
+        flip = (Button) findViewById(R.id.flip);
+        flip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mOpenCvCameraView.flipCamera();
+            }
+        });
 
         //mPath=getFilesDir()+"/facerecogOCV/";
         mPath = Environment.getExternalStorageDirectory()+"/facerecogOCV/";

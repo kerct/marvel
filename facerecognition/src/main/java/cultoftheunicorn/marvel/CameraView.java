@@ -17,10 +17,10 @@ import android.util.Log;
 public class CameraView extends JavaCameraView {
 
     private static final String TAG = "CameraView";
+    private boolean back = true;
 
     public CameraView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setCamFront();
     }
 
     public List<String> getEffectList() {
@@ -70,6 +70,17 @@ public class CameraView extends JavaCameraView {
 //         }
     	 mCamera.setParameters(parameters);
 
+    }
+
+    public void flipCamera() {
+        if(back) {
+            setCamFront();
+            back = false;
+        }
+        else {
+            setCamBack();
+            back = true;
+        }
     }
 
     public void setCamFront()
