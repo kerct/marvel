@@ -9,6 +9,8 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -71,6 +73,7 @@ public class Training extends AppCompatActivity implements CameraBridgeViewBase.
 
     PersonRecognizer fr;
     ToggleButton capture;
+    Button flip;
 
     static final long MAXIMG = 10;
 
@@ -174,6 +177,14 @@ public class Training extends AppCompatActivity implements CameraBridgeViewBase.
 
         mOpenCvCameraView = (CameraView) findViewById(R.id.camera_view);
         mOpenCvCameraView.setCvCameraViewListener(this);
+
+        flip = (Button) findViewById(R.id.flip);
+        flip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mOpenCvCameraView.flipCamera();
+            }
+        });
 
         //mPath=getFilesDir()+"/facerecogOCV/";
         mPath = Environment.getExternalStorageDirectory()+"/facerecogOCV/";
