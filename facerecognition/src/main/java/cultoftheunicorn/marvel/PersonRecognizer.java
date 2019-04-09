@@ -24,20 +24,17 @@ public  class PersonRecognizer {
 
     private FaceRecognizer faceRecognizer;
     private String mPath;
-    private int count=0;
+    private int count = 0;
     private Labels labelsFile;
-    private static final int WIDTH= 128;
-    private static final int HEIGHT= 128;
+    private static final int WIDTH = 128;
+    private static final int HEIGHT = 128;
 	private int mProb=999;
-
 
 	PersonRecognizer(String path) {
 		faceRecognizer =  com.googlecode.javacv.cpp.opencv_contrib.createLBPHFaceRecognizer(2,8,8,8,200);
-		// path=Environment.getExternalStorageDirectory()+"/facerecog/faces/";
-		mPath=path;
-		labelsFile= new Labels(mPath);
-
-
+		//path = Environment.getExternalStorageDirectory()+"/facerecog/faces/";
+		mPath = path;
+		labelsFile = new Labels(mPath);
 	}
 
 	void add(Mat m, String description) {
@@ -48,33 +45,26 @@ public  class PersonRecognizer {
 
 		FileOutputStream f;
 		try {
-			f = new FileOutputStream(mPath+description+"-"+count+".jpg",true);
+			f = new FileOutputStream(mPath + description + "-" + count + ".jpg",true);
 			count++;
 			bmp.compress(Bitmap.CompressFormat.JPEG, 100, f);
 			f.close();
-
 		} catch (Exception e) {
-			Log.e("error",e.getCause()+" "+e.getMessage());
+			Log.e("error",e.getCause() + " " + e.getMessage());
 			e.printStackTrace();
-
 		}
 	}
 
 	public boolean train() {
-
 		File root = new File(mPath);
-
 		FilenameFilter pngFilter = new FilenameFilter() {
 			public boolean accept(File dir, String name) {
 				return name.toLowerCase().endsWith(".jpg");
 
 			};
 		};
-
 		File[] imageFiles = root.listFiles(pngFilter);
-
 		MatVector images = new MatVector(imageFiles.length);
-
 		int[] labels = new int[imageFiles.length];
 
 		int counter = 0;
@@ -84,7 +74,6 @@ public  class PersonRecognizer {
 		IplImage grayImg;
 
 		int i1=mPath.length();
-
 
 		for (File image : imageFiles) {
 			String p = image.getAbsolutePath();
@@ -216,13 +205,11 @@ public  class PersonRecognizer {
 
 	public void load() {
 		train();
-
 	}
 
 	public int getProb() {
 		// TODO Auto-generated method stub
 		return mProb;
 	}
-
 
 }
