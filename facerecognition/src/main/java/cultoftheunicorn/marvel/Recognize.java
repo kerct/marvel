@@ -86,10 +86,10 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
     static final long MAXIMG = 10;
 
     Labels labelsFile;
-    static {
+    /*static {
         OpenCVLoader.initDebug();
         System.loadLibrary("opencv_java");
-    }
+    }*/
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
@@ -100,7 +100,7 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
                     Log.i(TAG, "OpenCV loaded successfully");
 
                     fr=new PersonRecognizer(mPath);
-                    String s = getResources().getString(R.string.Straininig);
+                    //String s = getResources().getString(R.string.Straininig);
                     //Toast.makeText(getApplicationContext(),s, Toast.LENGTH_LONG).show();
                     fr.load();
 
@@ -158,6 +158,8 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recognize);
+        
+        OpenCVLoader.initDebug();
 
         scan = (ToggleButton) findViewById(R.id.scan);
         final TextView results = (TextView) findViewById(R.id.results);
@@ -318,7 +320,6 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
         mOpenCvCameraView.disableView();
     }
 
-//    because capitalize is the new black
     private String capitalize(final String line) {
         return Character.toUpperCase(line.charAt(0)) + line.substring(1);
     }
