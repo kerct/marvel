@@ -159,7 +159,10 @@ public class Recognize extends AppCompatActivity implements CameraBridgeViewBase
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recognize);
         
-        OpenCVLoader.initDebug();
+        if(OpenCVLoader.initDebug())
+            Log.i(TAG, "OpenCV loaded");
+        else
+            Log.e(TAG, "OpenCV not loaded");
 
         scan = (ToggleButton) findViewById(R.id.scan);
         final TextView results = (TextView) findViewById(R.id.results);

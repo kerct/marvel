@@ -2,7 +2,6 @@ package cultoftheunicorn.marvel;
 
 import static  com.googlecode.javacv.cpp.opencv_highgui.*;
 import static  com.googlecode.javacv.cpp.opencv_core.*;
-
 import static  com.googlecode.javacv.cpp.opencv_imgproc.*;
 
 import java.io.File;
@@ -37,6 +36,7 @@ public  class PersonRecognizer {
 		labelsFile = new Labels(mPath);
 	}
 
+	// save pic
 	void add(Mat m, String description) {
 		Bitmap bmp= Bitmap.createBitmap(m.width(), m.height(), Bitmap.Config.ARGB_8888);
 
