@@ -30,6 +30,8 @@ public  class PersonRecognizer {
 	private int mProb=999;
 
 	PersonRecognizer(String path) {
+		//faceRecognizer = com.googlecode.javacv.cpp.opencv_contrib.createEigenFaceRecognizer();
+		//faceRecognizer = com.googlecode.javacv.cpp.opencv_contrib.createFisherFaceRecognizer();
 		faceRecognizer =  com.googlecode.javacv.cpp.opencv_contrib.createLBPHFaceRecognizer(2,8,8,8,200);
 		//path = Environment.getExternalStorageDirectory()+"/facerecog/faces/";
 		mPath = path;

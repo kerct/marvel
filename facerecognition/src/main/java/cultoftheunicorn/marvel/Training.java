@@ -287,8 +287,7 @@ public class Training extends AppCompatActivity implements CameraBridgeViewBase.
             Utils.matToBitmap(m, mBitmap);
 
             Message msg = new Message();
-            String textTochange = "IMG";
-            msg.obj = textTochange;
+            msg.obj = "IMG";
             mHandler.sendMessage(msg);
             if (countImages<MAXIMG)
             {
